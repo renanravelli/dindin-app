@@ -8,7 +8,7 @@ jdk:
   - oraclejdk11
 deploy:
   provider: heroku
-  app: dindin-app
+  app: dindinsouza-app
   api_key: $HEROKU_TOKEN
   skip_cleanup: true
   on:
