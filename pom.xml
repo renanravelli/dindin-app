@@ -16,9 +16,9 @@
 
     <properties>
         <flyway.schemas>sch_dev</flyway.schemas>
-        <flyway.user>dindinsouza</flyway.user>
-        <flyway.password>RRms2012</flyway.password>
-        <flyway.url>jdbc:postgresql://dindin-souza-instance-2.c2imbwbcyxhr.us-east-2.rds.amazonaws.com:5432/dindinsouza</flyway.url>
+        <flyway.user>epwrcolunndsri</flyway.user>
+        <flyway.password>7e5631f7b78ecf097568a1892cd719df22597cf491e2ef3acea2cc74c6a5ca1f</flyway.password>
+        <flyway.url>jdbc:postgresql://ec2-52-86-73-86.compute-1.amazonaws.com:5432/ddt27d0367t3po</flyway.url>
         <flyway.placeholderReplacement>true</flyway.placeholderReplacement>
         <flyway.placeholders.schema>${flyway.schemas}</flyway.placeholders.schema>
 

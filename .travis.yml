@@ -1,0 +1,21 @@
+language: java
+script: mvn clean compile install
+branches:
+  only:
+    - realease
+    - develop
+jdk:
+  - oraclejdk11
+deploy:
+  provider: heroku
+  app: dindin-app
+  api_key: $HEROKU_TOKEN
+  skip_cleanup: true
+  on:
+    repo: renanravelli/dindin-app
+    branch: desen
+notifications:
+  email: false
+cache:
+  directories:
+    - $HOME/.m2
