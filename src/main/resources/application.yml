@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: @flyway.url@
+    username: @flyway.user@
+    password: @flyway.password@
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    generate-ddl: false
+    properties:
+      hibernate:
+        default_schema: @flyway.schemas@
+    hibernate:
+      ddl-auto: none
+jwt:
+  secret: secret
+  expiration: 2629746000
+server:
+  servlet:
+    context-path: /api
+
+storage: /tmp/storage

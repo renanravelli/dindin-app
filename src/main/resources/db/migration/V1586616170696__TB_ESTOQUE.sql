@@ -1,0 +1,15 @@
+CREATE SCHEMA IF NOT EXISTS ${schema};
+
+CREATE TABLE IF NOT EXISTS ${schema}.TB_ESTOQUE
+(
+    ID            SERIAL,
+    ID_SABOR      BIGINT        NOT NULL,
+    QUANTIDADE    INTEGER       NOT NULL DEFAULT 0,
+    VALOR         DECIMAL(6, 2) NOT NULL DEFAULT 0,
+    DESCRICAO     VARCHAR(255),
+    DATA_REGISTRO TIMESTAMP     NOT NULL DEFAULT NOW(),
+    PRIMARY KEY (ID),
+    FOREIGN KEY (ID_SABOR) REFERENCES ${schema}.TB_SABOR (ID)
+);
+
+INSERT INTO ${schema}.tb_estoque (id_sabor, quantidade, valor) VALUES (1, 10000, 2.00);
