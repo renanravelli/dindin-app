@@ -17,4 +17,5 @@ jwt:
 server:
   servlet:
     context-path: /api
+
 storage: /tmp/storage
