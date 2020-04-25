@@ -2,8 +2,8 @@ language: java
 script: mvn flyway:migrate clean install compile
 branches:
   only:
-    - realease
-    - develop
+    - master
+    - desen
 jdk:
   - oraclejdk11
 deploy:
