@@ -1,5 +1,5 @@
 language: java
-script: mvn clean install compile
+script: mvn flyway:migrate clean install compile
 branches:
   only:
     - realease
