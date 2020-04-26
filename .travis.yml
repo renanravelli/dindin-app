@@ -1,5 +1,5 @@
 language: java
-script: mvn flyway:migrate clean install --batch-mode release:update-versions deploy
+script: mvn flyway:migrate clean install deploy --batch-mode release:update-versions
 branches:
   only:
     - master
