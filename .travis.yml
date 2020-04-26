@@ -1,5 +1,5 @@
 language: java
-script: mvn flyway:migrate clean install
+script: mvn flyway:migrate clean install release:update-versions deploy
 branches:
   only:
     - master

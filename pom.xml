@@ -8,11 +8,17 @@
         <version>2.2.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>br.com.ravellitecnologia</groupId>
+
+    <groupId>br.com.renanravelli</groupId>
     <artifactId>dindin-app</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>dindin-app</name>
-    <description>Demo project for Spring Boot</description>
+
+    <scm>
+        <connection>scm:svn:https://github.com/renanravelli/dindin-app</connection>
+        <developerConnection>scm:svn:https://github.com/renanravelli/dindin-app</developerConnection>
+        <url>https://github.com/renanravelli/dindin-app</url>
+    </scm>
 
     <properties>
         <jwt.version>0.9.1</jwt.version>
@@ -138,5 +144,13 @@
             </resource>
         </resources>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>Dindin-app</name>
+            <url>https://maven.pkg.github.com/renanravelli/dindin-app</url>
+        </repository>
+    </distributionManagement>
 
 </project>
