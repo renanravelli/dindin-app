@@ -1,5 +1,12 @@
 language: java
-script: mvn flyway:migrate clean install deploy --batch-mode release:update-versions
+script:
+  - mvn versions:set -DremoveSnapshot=true -DgenerateBackupPoms=false
+  - mvn flyway:migrate clean install deploy
+  - mvn --batch-mode release:update-versions -DnextSnapshot -DgenerateBackupPoms=false
+  - mvn versions:commit
+  - git pull origin $TRAVIS_BRANCH && git push origin $TRAVIS_BRANCH
+  - git add . && git commit "Travis-ci - new version generated"
+  - git push origin $TRAVIS_BRANCH
 branches:
   only:
     - master
