@@ -15,15 +15,19 @@
     <description>Demo project for Spring Boot</description>
 
     <properties>
-        <flyway.schemas>sch_dev</flyway.schemas>
-        <flyway.user>epwrcolunndsri</flyway.user>
-        <flyway.password>7e5631f7b78ecf097568a1892cd719df22597cf491e2ef3acea2cc74c6a5ca1f</flyway.password>
-        <flyway.url>jdbc:postgresql://ec2-52-86-73-86.compute-1.amazonaws.com:5432/ddt27d0367t3po</flyway.url>
-        <flyway.placeholderReplacement>true</flyway.placeholderReplacement>
-        <flyway.placeholders.schema>${flyway.schemas}</flyway.placeholders.schema>
-
-        <mapstruct.version>1.3.1.Final</mapstruct.version>
         <jwt.version>0.9.1</jwt.version>
+        <mapstruct.version>1.3.1.Final</mapstruct.version>
+
+        <!-- flyway configuration -->
+        <flyway.schemas>sch_dev</flyway.schemas>
+        <!--suppress UnresolvedMavenProperty -->
+        <flyway.user>${env.DINDINSOUZA_DATABASE_USERNAME}</flyway.user>
+        <!--suppress UnresolvedMavenProperty -->
+        <flyway.password>${env.DINDINSOUZA_DATABASE_PASSWORD}</flyway.password>
+        <!--suppress UnresolvedMavenProperty -->
+        <flyway.url>${env.DINDINSOUZA_DATABASE_URL}</flyway.url>
+        <flyway.placeholders.schema>${flyway.schemas}</flyway.placeholders.schema>
+        <flyway.placeholderReplacement>true</flyway.placeholderReplacement>
 
         <java.version>11</java.version>
     </properties>
@@ -127,6 +131,12 @@
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
 
 </project>
