@@ -1,6 +1,6 @@
 language: java
 script:
-  - mvn flyway:migrate clean install deploy
+  - mvn flyway:migrate clean install
 branches:
   only:
     - master
