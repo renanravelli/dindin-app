@@ -1,5 +1,5 @@
 language: java
-script: mvn flyway:migrate clean install compile
+script: mvn flyway:migrate clean install
 branches:
   only:
     - master
@@ -9,6 +9,7 @@ jdk:
 deploy:
   provider: heroku
   app: dindin-app
+  access_key_id: $HEROKU_ID
   api_key: $HEROKU_TOKEN
   skip_cleanup: true
   on:
