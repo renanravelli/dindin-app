@@ -1,16 +1,20 @@
 package br.com.renanravelli.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -44,7 +48,8 @@ public class Informacao implements Serializable {
     @JoinColumn(name = "id_endereco", referencedColumnName = "id")
     private Endereco endereco;
     @JsonManagedReference
+    @OrderBy("dataSolicitacao desc")
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @OneToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER, mappedBy = "informacao")
-    private Set<Solicitacao> solicitacoes = new HashSet<>();
+    private List<Solicitacao> solicitacoes = new ArrayList<>();
 }

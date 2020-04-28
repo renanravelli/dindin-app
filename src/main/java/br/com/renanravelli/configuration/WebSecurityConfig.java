@@ -40,7 +40,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/solicitacao/**",
             "/estoque/",
             "/usuario/perfil",
-            "/usuario/atualizar-perfil"
+            "/usuario/buscar-endereco/**",
+            "/usuario/atualizar-perfil**",
+            "/usuario/atualizar-senha**"
     };
 
     private static final String[] MATCHERS_MAIN = {

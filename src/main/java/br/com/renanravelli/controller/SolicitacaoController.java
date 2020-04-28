@@ -52,9 +52,8 @@ public class SolicitacaoController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<SolicitacaoDTO> cancelar(@RequestBody Solicitacao solicitacao) {
+    public ResponseEntity<SolicitacaoDTO> cancelar(@RequestBody SolicitacaoDTO solicitacao) {
 
-        solicitacao.cancelar();
         Solicitacao solicitacaoAtualizada = this.solicitacaoService.cancelar(solicitacao.getId());
         SolicitacaoDTO solicitacaoDTO = this.solicitacaoMapper.toDTO(solicitacaoAtualizada);
 

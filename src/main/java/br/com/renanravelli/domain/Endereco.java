@@ -33,6 +33,10 @@ public class Endereco implements Serializable {
     private String bairro;
     @Column(name = "endereco")
     private String endereco;
+    @Column(name = "nro")
+    private String nro;
     @Column(name = "cep")
     private String cep;
+    @Column(name = "complemento")
+    private String complemento;
 }

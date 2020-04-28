@@ -5,7 +5,7 @@ import lombok.*;
 
 import javax.validation.constraints.Email;
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 /**
  * @author renanravelli
@@ -29,5 +29,5 @@ public class InformacaoDTO {
     private String email;
     private EnderecoDTO endereco;
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
-    private Set<SolicitacaoDTO> solicitacoes;
+    private List<SolicitacaoDTO> solicitacoes;
 }

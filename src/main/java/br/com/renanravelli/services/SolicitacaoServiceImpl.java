@@ -1,8 +1,6 @@
 package br.com.renanravelli.services;
 
-import br.com.renanravelli.domain.Estoque;
-import br.com.renanravelli.domain.Solicitacao;
-import br.com.renanravelli.domain.Usuario;
+import br.com.renanravelli.domain.*;
 import br.com.renanravelli.exception.Assert;
 import br.com.renanravelli.exception.BussinesException;
 import br.com.renanravelli.exception.Mensagem;
@@ -14,6 +12,8 @@ import br.com.renanravelli.security.JWTUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.Column;
 
 /**
  * @author renanravelli
@@ -39,6 +39,14 @@ public class SolicitacaoServiceImpl implements SolicitacaoService {
         String token = solicitacao.getToken().substring(7);
         String username = this.jwtUtil.getUsername(token);
         Usuario usuario = this.usuarioService.buscar(username);
+
+        Endereco endereco = usuario.getInformacao().getEndereco();
+        Assert.isNull(endereco, Mensagem.DADOS_PARA_ENTREGA_INCOMPLETO);
+        Assert.isNull(endereco.getCep(), Mensagem.DADOS_PARA_ENTREGA_INCOMPLETO);
+        Assert.isNull(endereco.getEstado(), Mensagem.DADOS_PARA_ENTREGA_INCOMPLETO);
+        Assert.isNull(endereco.getCidade(), Mensagem.DADOS_PARA_ENTREGA_INCOMPLETO);
+        Assert.isNull(endereco.getBairro(), Mensagem.DADOS_PARA_ENTREGA_INCOMPLETO);
+        Assert.isNull(endereco.getEndereco(), Mensagem.DADOS_PARA_ENTREGA_INCOMPLETO);
 
         solicitacao.setEstoque(estoque);
         solicitacao.setInformacao(usuario.getInformacao());

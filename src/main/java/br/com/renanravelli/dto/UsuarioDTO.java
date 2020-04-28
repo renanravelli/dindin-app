@@ -22,6 +22,5 @@ public class UsuarioDTO {
     private String senha;
     private byte[] foto;
     private Perfil perfil;
-    @NonNull
     private InformacaoDTO informacao;
 }

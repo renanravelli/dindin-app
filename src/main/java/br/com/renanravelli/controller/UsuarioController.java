@@ -1,11 +1,15 @@
 package br.com.renanravelli.controller;
 
+import br.com.renanravelli.domain.Endereco;
 import br.com.renanravelli.domain.Usuario;
 import br.com.renanravelli.dto.LoginDTO;
 import br.com.renanravelli.dto.UsuarioDTO;
+import br.com.renanravelli.dto.ViaCep;
+import br.com.renanravelli.dto.mapper.EnderecoMapper;
 import br.com.renanravelli.dto.mapper.UsuarioMapper;
 import br.com.renanravelli.exception.Assert;
 import br.com.renanravelli.exception.Mensagem;
+import br.com.renanravelli.ports.driver.CepSevice;
 import br.com.renanravelli.ports.driver.UsuarioService;
 import br.com.renanravelli.security.JWTUtil;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +31,8 @@ import java.util.Objects;
 public class UsuarioController {
 
     private final JWTUtil jwtUtil;
+    private final CepSevice cepSevice;
+    private final EnderecoMapper enderecoMapper;
     private final UsuarioMapper usuarioMapper;
     private final UsuarioService usuarioService;
 
@@ -52,6 +58,14 @@ public class UsuarioController {
         UsuarioDTO usuarioDTO = usuarioMapper.toDTO(usuarioAtualizado);
 
         return ResponseEntity.ok(usuarioDTO);
+    }
+
+    //todo mudar para o controller do endereco
+    @GetMapping("/buscar-endereco/{cep}")
+    public ResponseEntity<Endereco> buscarEndereco(@PathVariable("cep") String cep) {
+        ViaCep viaCep = this.cepSevice.getEndereco(cep);
+        Endereco endereco = this.enderecoMapper.fromViaCep(viaCep);
+        return ResponseEntity.ok(endereco);
     }
 
     @PutMapping(value = "/atualizar-foto/{id}",

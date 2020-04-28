@@ -14,16 +14,12 @@ import lombok.*;
 @AllArgsConstructor
 public class EnderecoDTO {
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Long id;
-    @NonNull
     private Estado estado;
-    @NonNull
     private String cidade;
-    @NonNull
     private String bairro;
-    @NonNull
     private String endereco;
-    @NonNull
+    private String nro;
     private String cep;
+    private String complemento;
 }

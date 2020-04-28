@@ -26,12 +26,12 @@ public class SolicitacaoDTO {
     private Estoque estoque;
     private Integer quantidade;
     private BigDecimal valorTotal;
-    private FormaPagamento formaPagamento;
+    private String formaPagamento;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private LocalDateTime dataSolicitacao;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private LocalDateTime dataEntrega;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private LocalDateTime dataPagamento;
-    private StatusSolicitacao status;
+    private String status;
 }
