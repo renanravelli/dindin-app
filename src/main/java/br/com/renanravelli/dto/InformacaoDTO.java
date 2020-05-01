@@ -1,5 +1,6 @@
 package br.com.renanravelli.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
@@ -22,6 +23,7 @@ public class InformacaoDTO {
     @NonNull
     private String nome;
     private String documento;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataNascimento;
     private String telefone;
     @Email
